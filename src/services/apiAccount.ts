@@ -4,6 +4,7 @@ import type {IRegister} from "../types/account/IRegister.ts";
 import type {IRegisterResponse} from "../types/account/IRegisterResponse.ts";
 import {serialize} from "object-to-formdata";
 import type {ILogin} from "../types/account/ILogin.ts";
+import type {IForgotPassword} from "../types/account/IForgotPassword.ts";
 
 export const apiAccount = createApi({
     reducerPath: 'account',
@@ -32,6 +33,16 @@ export const apiAccount = createApi({
                     body: data
                 }
             }
+        }),
+        forgotPassword: builder.mutation<void, IForgotPassword>({
+            query: (data) =>
+            {
+                return {
+                    url: "forgotpasword",
+                    method: "POST",
+                    body: data
+                }
+            }
         })
     })
 });
@@ -39,4 +50,5 @@ export const apiAccount = createApi({
 export const {
     useRegisterMutation,
     useLoginMutation,
+    useForgotPasswordMutation,
 }  = apiAccount;

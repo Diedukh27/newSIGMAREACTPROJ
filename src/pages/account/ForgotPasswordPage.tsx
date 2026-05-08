@@ -2,29 +2,30 @@ import MyHeader from "../../common/MyHeader";
 import MyButton from "../../common/MyButton";
 import MyInput from "../../common/MyInput";
 import {useFormik} from "formik";
-import MyInputPassword from "../../common/MyInputPassword";
-import {useLoginMutation} from "../../services/apiAccount.ts";
-import type {ILogin} from "../../types/account/ILogin.ts";
+import {useForgotPasswordMutation} from "../../services/apiAccount.ts";
+import type {IForgotPassword} from "../../types/account/IForgotPassword.ts";
 import MyLink from "../../common/MyLink";
+import {useNavigate} from "react-router-dom";
 
-const LoginPage = () => {
+const ForgotPasswordPage = () => {
 
-    const [loginUser] =  useLoginMutation(); //вхід користувача
+    const [forgotPassword] =  useForgotPasswordMutation(); //вхід користувача
     //post запит - це спеціальний запит на сервер, який призначений для
     //зміни даних - у більшості випадків для створення інформації
-    const initValues: ILogin = {
-        email: "",
-        password: ""
+    const initValues: IForgotPassword = {
+        email: ""
     }
-    const submitHandler = async (values: ILogin) => {
+
+    const navigate = useNavigate();
+
+    const submitHandler = async (values: IForgotPassword) => {
         try {
             console.log("Submit value: ",values);
-            const result = await loginUser(values).unwrap();
-            console.log("Відправка запиту на сервер", result);
-            alert(result.token);
+            await forgotPassword(values).unwrap();
+            navigate("/forgot-password-success");
         }
         catch(error) {
-            alert("Дані вказано не вірно!");
+            alert("Даної пошти не знайдено");
             console.log("Сталася халепа, щось пішло не так", error)
         }
         // console.log(values);
@@ -41,19 +42,13 @@ const LoginPage = () => {
     return (
         <>
             <div className="max-w-2xl mx-auto p-8">
-                <MyHeader text={"Вхід"}/>
+                <MyHeader text={"Відновити пароль"}/>
                 <form onSubmit={handleSubmit}>
 
                     <MyInput label={"Email"}
                              placeholder={"Вкажіть пошту"}
                              id={"email"}
                              onChange={handleChange}
-                    />
-
-                    <MyInputPassword label={"Пароль"}
-                                     placeholder={"Вкажіть пароль"}
-                                     id={"password"}
-                                     onChange={handleChange}
                     />
 
                     {/*<div className="mb-8">*/}
@@ -71,19 +66,12 @@ const LoginPage = () => {
                     {/*</div>*/}
 
 
-                    <div className={"flex gap-3"}>
-                        <MyButton text={"Вхід"}/>
-                        <MyLink text={"Пеерейти до реєстарції"} to={"/register"} />
-                    </div>
-
-                    <div className={"mt-4 float float-right"}>
-                        <MyLink text={"Забувся пароль"} to={"/forgot-password"} />
-                    </div>
-
+                    <MyButton text={"Відновити пароль"}/>
+                    <MyLink text={"Перейти до входу"} to={"/login"} />
                 </form>
             </div>
         </>
     )
 }
 
-export default LoginPage;
+export default ForgotPasswordPage;
