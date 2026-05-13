@@ -7,6 +7,7 @@ import RegisterPage from "./pages/account/RegisterPage.tsx";
 import LoginPage from "./pages/account/LoginPage.tsx";
 import ForgotPasswordPage from "./pages/account/ForgotPasswordPage.tsx";
 import ForgotPasswordSuccessPage from "./pages/account/ForgotPasswordSuccessPage.tsx";
+import ResetPasswordPage from "./pages/account/ResetPasswordPage.tsx";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                     <Route path={"register"} element={<RegisterPage/>}/>
                     <Route path={"forgot-password"} element={<ForgotPasswordPage/>}/>
                     <Route path={"forgot-password-success"} element={<ForgotPasswordSuccessPage/>}/>
+                    <Route path={"reset-password"} element={<ResetPasswordPage/>}/>
                     <Route path={"login"} element={<LoginPage/>}/>
                 </Route>
             </Routes>
