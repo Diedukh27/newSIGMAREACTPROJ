@@ -38,7 +38,7 @@ export const apiAccount = createApi({
             query: (data) =>
             {
                 return {
-                    url: "forgotpasword",
+                    url: "forgotPassword",
                     method: "POST",
                     body: data
                 }
