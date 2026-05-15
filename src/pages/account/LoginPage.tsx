@@ -6,10 +6,11 @@ import MyInputPassword from "../../common/MyInputPassword";
 import {useLoginMutation} from "../../services/apiAccount.ts";
 import type {ILogin} from "../../types/account/ILogin.ts";
 import MyLink from "../../common/MyLink";
+import LoadingOverlay from "../../common/LoadingOverlay";
 
 const LoginPage = () => {
 
-    const [loginUser] =  useLoginMutation(); //вхід користувача
+    const [loginUser, {isLoading: isLoginLoading}] =  useLoginMutation(); //вхід користувача
     //post запит - це спеціальний запит на сервер, який призначений для
     //зміни даних - у більшості випадків для створення інформації
     const initValues: ILogin = {
@@ -41,6 +42,8 @@ const LoginPage = () => {
     return (
         <>
             <div className="max-w-2xl mx-auto p-8">
+                {isLoginLoading && <LoadingOverlay />}
+
                 <MyHeader text={"Вхід"}/>
                 <form onSubmit={handleSubmit}>
 

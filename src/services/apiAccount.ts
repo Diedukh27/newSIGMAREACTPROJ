@@ -5,7 +5,7 @@ import type {IRegisterResponse} from "../types/account/IRegisterResponse.ts";
 import {serialize} from "object-to-formdata";
 import type {ILogin} from "../types/account/ILogin.ts";
 import type {IForgotPassword} from "../types/account/IForgotPassword.ts";
-import type {IResetPassword} from "../types/account/IResetPassword.ts";
+import type {IResetPasswordRequest} from "../types/account/IResetPasswordRequest.ts";
 
 export const apiAccount = createApi({
     reducerPath: 'account',
@@ -45,7 +45,7 @@ export const apiAccount = createApi({
                 }
             }
         }),
-        resetPassword: builder.mutation<void, IResetPassword>({
+        resetPassword: builder.mutation<void, IResetPasswordRequest>({
             query: (data) =>
             {
                 return {

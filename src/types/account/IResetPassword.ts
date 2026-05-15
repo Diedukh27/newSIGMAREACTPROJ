@@ -1,4 +1,4 @@
 export interface IResetPassword {
-    newPasword: string,
-    confirmnewNewPassword: string
+    newPassword: string,
+    confirmNewPassword: string
 }

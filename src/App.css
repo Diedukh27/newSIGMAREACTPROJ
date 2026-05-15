@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.8;
+        box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 40px rgba(220, 38, 38, 0.8);
+    }
+}
+
+.spin-loader {
+    animation: spin-slow 3s linear infinite;
+}
+
+.pulse-loader {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
