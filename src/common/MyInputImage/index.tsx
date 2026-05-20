@@ -106,7 +106,7 @@ const MyInputImage: React.FC<MyInputImageProps> = ({
                     className={`relative border-2 border-dashed rounded-lg p-6 transition-all duration-200 ${
                         isDragActive
                             ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
-                            : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-slate-900 hover:border-gray-400 dark:hover:border-gray-500'
+                            : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500'
                     }`}
                 >
                     <input
@@ -136,7 +136,7 @@ const MyInputImage: React.FC<MyInputImageProps> = ({
                 </div>
             ) : (
                 <div className="space-y-4">
-                    <div className="relative rounded-lg overflow-hidden border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-slate-800">
+                    <div className="relative rounded-lg overflow-hidden border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700">
                         <img
                             src={previewUrl}
                             alt="Превью"
@@ -152,7 +152,7 @@ const MyInputImage: React.FC<MyInputImageProps> = ({
                         </button>
                     </div>
 
-                    <div className="flex items-center justify-between bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-gray-600 rounded-lg p-3">
+                    <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-3">
                         <div className="flex items-center gap-2 flex-1">
                             <Upload size={18} className="text-blue-500 dark:text-blue-400" />
                             <span className="text-sm text-gray-700 dark:text-gray-300 truncate">

@@ -8,13 +8,14 @@ import LoginPage from "./pages/account/LoginPage.tsx";
 import ForgotPasswordPage from "./pages/account/ForgotPasswordPage.tsx";
 import ForgotPasswordSuccessPage from "./pages/account/ForgotPasswordSuccessPage.tsx";
 import ResetPasswordPage from "./pages/account/ResetPasswordPage.tsx";
+import Layout from "./Layout";
 
 function App() {
 
     return (
         <>
             <Routes>
-                <Route path="/">
+                <Route path="/" element={<Layout/>} >
                     <Route index element={<UsersPage/>} />
                     <Route path={"posts"}>
                         <Route path={"create"} element={<CreatePostPage/>} />
@@ -30,4 +31,4 @@ function App() {
     )
 }
 
-export default App
+export default App;

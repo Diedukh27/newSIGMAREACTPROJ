@@ -20,4 +20,4 @@ const LoadingOverlay: React.FC = () => {
     );
 };
 
-export default LoadingOverlay;
+export default  LoadingOverlay;

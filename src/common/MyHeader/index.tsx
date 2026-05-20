@@ -5,7 +5,7 @@ interface MyHeaderProps {
 const MyHeader: React.FC<MyHeaderProps> = ({text}) => {
     return (
         <>
-            <h1 className={"text-black  dark:text-white text-4xl font-bold text-center"}>
+            <h1 className={"text-gray-900 dark:text-white text-4xl font-bold text-center"}>
                 {text}
             </h1>
         </>
