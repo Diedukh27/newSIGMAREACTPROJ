@@ -5,6 +5,9 @@ import {useNavigate} from "react-router-dom";
 import type {IRegister} from "../../types/account/IRegister.ts";
 import {useFormik} from "formik";
 import MyInput from "../../common/MyInput";
+import MyDescription from "../../common/MyDescription";
+import MyInputImage from "../../common/MyInputImage";
+import MyButton from "../../common/MyButton";
 
 const CreateMoviePage = () => {
 
@@ -36,7 +39,6 @@ const CreateMoviePage = () => {
         }
         // console.log(values);
     }
-
     const formik = useFormik({
         initialValues: initValues,
         onSubmit: submitHandler
@@ -55,7 +57,7 @@ const CreateMoviePage = () => {
             <div className="max-w-2xl mx-auto p-8">
                 <MyHeader text={"Створити фільм"}/>
                 <form onSubmit={handleSubmit}>
-                    <MyInput label={"Назва фільм"}
+                    <MyInput label={"Назва фільму"}
                              placeholder={"Вкажіть назву"}
                              id={"title"}
                              onChange={handleChange}
@@ -67,12 +69,52 @@ const CreateMoviePage = () => {
                              onChange={handleChange}
                     />
 
-                    <MyInput label={"description"}
-                             placeholder={"Вкажіть опис"}
-                             id={"description"}
+                    <MyInput label={"Жанр"}
+                             placeholder={"Вкажіть жанр"}
+                             id={"genreIds"}
                              onChange={handleChange}
                     />
 
+                    <MyDescription label={"Опис"}
+                                   placeholder={"Вкажіть опис"}
+                                   id={"description"}
+                                   onChange={handleChange}
+                    />
+
+                    <MyInputImage label={"Фото фільму"}
+                                  placeholder={"Вкажіть фото"}
+                                  id={"image"}
+                                  objectFit = {"cover"}
+                                  previewHeight = {"h-96"}
+                                  onChange={onHandleImageSelect}
+                    />
+
+                    <MyInputImage label={"Фільм"}
+                                  placeholder={"Вкажіть відео"}
+                                  id={"video"}
+                                  objectFit = {"cover"}
+                                  previewHeight = {"h-96"}
+                                  onChange={onHandleImageSelect}
+                    />
+
+                    <MyInput label={"Рейтинг фільму"}
+                             placeholder={"Вкажіть рейтинг"}
+                             id={"imdbRating"}
+                             onChange={handleChange}
+                    />
+
+                    <MyInput label={"Дата релізу"}
+                             placeholder={"Вкажіть дату релізу"}
+                             id={"releaseDate"}
+                             onChange={handleChange}
+                    />
+
+                    <MyInput label={"Трейлер"}
+                             placeholder={"Вкажіть помилання на трейлер"}
+                             id={"trailerUrl"}
+                             onChange={handleChange}
+                    />
+                    <MyButton text={"Створити фільм"}/>
                 </form>
             </div>
         </>
