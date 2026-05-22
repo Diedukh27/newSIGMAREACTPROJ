@@ -17,6 +17,7 @@ const Layout: React.FC = () => {
     const navLinks = [
         { path: '/', label: 'Користувачі' },
         { path: '/posts/create', label: 'Створити пост' },
+        { path: '/movies/create', label: 'Створити фільм' },
         { path: '/register', label: 'Реєстрація' },
         { path: '/login', label: 'Вхід' },
     ];
