@@ -8,6 +8,7 @@ import MyDescription from "../../common/MyDescription";
 import MyInputImage from "../../common/MyInputImage";
 import MyButton from "../../common/MyButton";
 import {useSearchGenresQuery} from "../../services/apiGenres.ts";
+import GenreMultiSelect from "../../common/GenreMultiSelect";
 
 const CreateMoviePage = () => {
 
@@ -111,6 +112,12 @@ const CreateMoviePage = () => {
                              id={"releaseDate"}
                              onChange={handleChange}
                     />
+                    {genres && genres.items.length > 0 && (
+                    <GenreMultiSelect
+                        genres={genres.items}
+                        onChange={(selected) => console.log("seect", selected)}
+                        selectedGenres={[]}/>
+                    )}
 
                     <MyInput label={"Трейлер"}
                              placeholder={"Вкажіть помилання на трейлер"}
