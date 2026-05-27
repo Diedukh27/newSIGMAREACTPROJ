@@ -1,22 +1,24 @@
 import {createApi} from "@reduxjs/toolkit/query/react";
 import {createAWSQuery} from "../util/createAWSQuery.ts";
-import {serialize} from "object-to-formdata";
-import type {IMovieCreate} from "../types/movies/IMovieCreate.ts";
+import type {IPagedResult} from "../types/helpers/IPagedResult.ts";
+import type {IGenreItem} from "../types/genres/IGenreItem.ts";
+import type {IGenreSearch} from "../types/genres/IGenreSearch.ts";
 
 export const apiGenres = createApi({
     reducerPath: 'genres',
     baseQuery: createAWSQuery("api/genres"),
     endpoints: (builder) => ({
-        createMovie: builder.mutation<void, IMovieCreate>({
-            query: (body) =>
+        searchGenres: builder.query<IPagedResult<IGenreItem>, IGenreSearch>({
+            query: (data) =>
             {
-                console.log("Submit Data Query", body);
-                const form = serialize(body);
+                // console.log("Submit Data Query", body);
+                // const form = serialize(body);
+
 
                 return {
-                    url: "",
-                    method: "POST",
-                    body: form
+                    url: "search",
+                    method: "GET",
+                    params: data
                 }
             }
         }),
@@ -24,5 +26,5 @@ export const apiGenres = createApi({
 });
 
 export const {
-    useCreateMovieMutation,
+    useSearchGenresQuery
 }  = apiGenres;

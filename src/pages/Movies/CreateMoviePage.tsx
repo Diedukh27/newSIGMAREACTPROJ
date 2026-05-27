@@ -2,14 +2,17 @@ import MyHeader from "../../common/MyHeader";
 import {useCreateMovieMutation} from "../../services/apiMovies.ts";
 import type {IMovieCreate} from "../../types/movies/IMovieCreate.ts";
 import {useNavigate} from "react-router-dom";
-import type {IRegister} from "../../types/account/IRegister.ts";
 import {useFormik} from "formik";
 import MyInput from "../../common/MyInput";
 import MyDescription from "../../common/MyDescription";
 import MyInputImage from "../../common/MyInputImage";
 import MyButton from "../../common/MyButton";
+import {useSearchGenresQuery} from "../../services/apiGenres.ts";
 
 const CreateMoviePage = () => {
+
+    const {data: genres} = useSearchGenresQuery({page: 1, itemPrePage: 1000});
+    console.log("genres", genres);
 
     const [createMovie] =  useCreateMovieMutation(); //реєстрація користувача
     //post запит - це спеціальний запит на сервер, який призначений для
